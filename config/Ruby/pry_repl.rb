@@ -8,7 +8,8 @@ require 'json'
 include Socket::Constants
 
 Encoding.default_internal = Encoding::UTF_8
-Encoding.default_external = Encoding::UTF_8
+$stdin .set_encoding Encoding::UTF_8, $stdin .internal_encoding
+$stdout.set_encoding Encoding::UTF_8, $stdout.internal_encoding
 
 class PryInput
     def readline(prompt)
